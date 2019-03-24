@@ -24,6 +24,11 @@ class GPXParser: NSObject, XMLParserDelegate {
 		case rte, rtept
 		case ele, time, desc, cmt, name
 	}
+	
+	private var currentTrack: GPXTrack?
+	private var currentTrackSegment: GPXTrackSegment?
+	private var currentPoint: GPXWaypoint?
+	private var currentRoute: GPXRoute?
 
 	//MARK: - Lifecycle
 	

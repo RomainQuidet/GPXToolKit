@@ -16,6 +16,7 @@
 		7A6429FE2246C83300CC2957 /* GPXRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6429FD2246C83300CC2957 /* GPXRoute.swift */; };
 		7A642A002246C86E00CC2957 /* GPXTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6429FF2246C86E00CC2957 /* GPXTrack.swift */; };
 		7A642A022246CA3500CC2957 /* GPXParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A642A012246CA3500CC2957 /* GPXParser.swift */; };
+		7A642A042246DCB500CC2957 /* GPXTrackSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A642A032246DCB500CC2957 /* GPXTrackSegment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		7A6429FD2246C83300CC2957 /* GPXRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXRoute.swift; sourceTree = "<group>"; };
 		7A6429FF2246C86E00CC2957 /* GPXTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXTrack.swift; sourceTree = "<group>"; };
 		7A642A012246CA3500CC2957 /* GPXParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXParser.swift; sourceTree = "<group>"; };
+		7A642A032246DCB500CC2957 /* GPXTrackSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXTrackSegment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				7A6429FB2246C6D300CC2957 /* GPXWaypoint.swift */,
 				7A6429FD2246C83300CC2957 /* GPXRoute.swift */,
 				7A6429FF2246C86E00CC2957 /* GPXTrack.swift */,
+				7A642A032246DCB500CC2957 /* GPXTrackSegment.swift */,
 				7A642A012246CA3500CC2957 /* GPXParser.swift */,
 			);
 			path = GPXToolKit;
@@ -218,6 +221,7 @@
 				7A642A022246CA3500CC2957 /* GPXParser.swift in Sources */,
 				7A6429FC2246C6D300CC2957 /* GPXWaypoint.swift in Sources */,
 				7A6429F82246C5AB00CC2957 /* GPX.swift in Sources */,
+				7A642A042246DCB500CC2957 /* GPXTrackSegment.swift in Sources */,
 				7A6429FE2246C83300CC2957 /* GPXRoute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

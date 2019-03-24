@@ -1,5 +1,5 @@
 //
-//  GPXWaypoint.swift
+//  GPXTrackSegment.swift
 //  GPXToolKit
 //
 //  Created by Romain Quidet on 23/03/2019.
@@ -8,7 +8,6 @@
 
 import Foundation
 
-public struct GPXWaypoint {
-	let lat: Double
-	let lon: Double
+public struct GPXTrackSegment {
+	
 }

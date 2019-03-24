@@ -9,5 +9,7 @@
 import Foundation
 
 public struct GPXTrack {
-	
+	let name: String
+	let comment: String?
+	let description: String?
 }
