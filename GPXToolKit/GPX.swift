@@ -18,8 +18,6 @@ public class GPX {
 	
     public init(version: String) {
         self.version = version
-        if version != "1.0" {
-            self.creator = "com.xdappfactory.GPXToolKit"
-        }
+        self.creator = "GPXToolKit - http://www.xdappfactory.com"
     }
 }
