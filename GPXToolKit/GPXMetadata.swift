@@ -8,6 +8,6 @@
 
 import Foundation
 
-public struct GPXMetadata {
+public class GPXMetadata {
 	
 }

@@ -8,6 +8,10 @@
 
 import Foundation
 
-public struct GPXRoute {
-	
+public class GPXRoute {
+	public internal(set) var points = [GPXWaypoint]()
+    public internal(set) var name: String?
+    public internal(set) var comment: String?
+    public internal(set) var description: String?
+
 }
