@@ -8,9 +8,10 @@
 
 import Foundation
 
-class GPXParser: NSObject, XMLParserDelegate {
+public class GPXParser: NSObject, XMLParserDelegate {
 	
-	typealias GPXParserCompletion = (_ gpx: GPX?, _ error: Error?) -> Void
+    public static let GPXErrorDomain = "com.xdappfactory.GPXToolKit"
+	public typealias GPXParserCompletion = (_ gpx: GPX?, _ error: Error?) -> Void
 	
 	private let xmlParser: XMLParser
 	private var delegateCompletion: GPXParserCompletion?
@@ -19,6 +20,7 @@ class GPXParser: NSObject, XMLParserDelegate {
 	}
 	private var state: GPXParserState = .initial
 	private enum GPXKey: String {
+        case gpx
 		case trk, trkpt, trkseg
 		case wpt
 		case rte, rtept
@@ -27,6 +29,7 @@ class GPXParser: NSObject, XMLParserDelegate {
     
     private let dateFormatter = ISO8601DateFormatter()
 	
+    private var currentGPX: GPX?
 	private var currentTrack: GPXTrack?
 	private var currentTrackSegment: GPXTrackSegment?
 	private var currentPoint: GPXWaypoint?
@@ -61,7 +64,27 @@ class GPXParser: NSObject, XMLParserDelegate {
 		self.xmlParser.delegate = self
 	}
 	
-	//MARK: - Public
+    //MARK: - Public
+    
+    public static func parse(contentsOf url: URL, completion: @escaping GPXParserCompletion) {
+        guard let parser = GPXParser(contentsOf: url) else {
+            let error = NSError(domain: GPXParser.GPXErrorDomain, code: -1, userInfo: nil)
+            completion(nil, error)
+            return
+        }
+        parser.parse { (gpx, error) in
+            completion(gpx, error)
+        }
+    }
+    
+    public static func parse(data: Data, completion: @escaping GPXParserCompletion) {
+        let parser = GPXParser(data: data)
+        parser.parse { (gpx, error) in
+            completion(gpx, error)
+        }
+    }
+    
+	//MARK: - Internal
 	
 	func parse(completion: @escaping GPXParserCompletion) {
 		guard state == .initial else {
@@ -69,17 +92,10 @@ class GPXParser: NSObject, XMLParserDelegate {
 			return
 		}
 		state = .parsing
-		DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-			let start = self?.xmlParser.parse()
-			if start == false {
-				let error = NSError(domain: "com.xdappfactory.GPXToolKit", code: -1, userInfo: nil)
-				DispatchQueue.main.async {
-					completion(nil, error)
-				}
-			}
-			else {
-				self?.delegateCompletion = completion
-			}
+        self.delegateCompletion = completion
+		DispatchQueue.global(qos: .userInitiated).async {
+            // Note: keep strong ref on self during parsing
+			self.xmlParser.parse()
 		}
 	}
 	
@@ -96,22 +112,36 @@ class GPXParser: NSObject, XMLParserDelegate {
 		}
 	}
 	
-	
 	//MARK: - XMLParserDelegate
-	
-	func parserDidStartDocument(_ parser: XMLParser) {
+    
+    public func parserDidStartDocument(_ parser: XMLParser) {
 		//
 	}
 	
-	func parserDidEndDocument(_ parser: XMLParser) {
+    public func parserDidEndDocument(_ parser: XMLParser) {
 		state = .done
+        if let completion = self.delegateCompletion {
+            DispatchQueue.main.async {
+                completion(self.currentGPX, nil)
+            }
+        }
 	}
 	
-	func parser(_ parser: XMLParser, didStartElement elementName: String,
+    public func parser(_ parser: XMLParser, didStartElement elementName: String,
 				namespaceURI: String?, qualifiedName qName: String?,
 				attributes attributeDict: [String : String] = [:]) {
+//        debugPrint("+++ didStartElement \(elementName) with dict \(attributeDict)")
         guard let gpxKey = GPXKey(rawValue: elementName) else { return }
         switch gpxKey {
+        case .gpx:
+            guard let version = attributeDict["version"] else {
+                abortParsing()
+                return
+            }
+            self.currentGPX = GPX(version: version)
+            if let creator = attributeDict["creator"] {
+                self.currentGPX?.creator = creator
+            }
         case .trk:
             self.currentTrack = GPXTrack()
         case .trkseg:
@@ -128,10 +158,25 @@ class GPXParser: NSObject, XMLParserDelegate {
         }
 	}
 	
-	func parser(_ parser: XMLParser, didEndElement elementName: String,
+    public func parser(_ parser: XMLParser, didEndElement elementName: String,
 				namespaceURI: String?, qualifiedName qName: String?) {
+//        debugPrint("--- didEndElement \(elementName)")
         guard let gpxKey = GPXKey(rawValue: elementName) else { return }
         switch gpxKey {
+        case .gpx:
+            guard var gpx = self.currentGPX else {
+                abortParsing()
+                return
+            }
+            if foundWaypoints.count > 0 {
+                gpx.waypoints = foundWaypoints
+            }
+            if foundTracks.count > 0 {
+                gpx.tracks = foundTracks
+            }
+            if foundRoutes.count > 0 {
+                gpx.routes = foundRoutes
+            }
         case .trk:
             guard let track = self.currentTrack else { return }
             self.foundTracks.append(track)
@@ -214,12 +259,16 @@ class GPXParser: NSObject, XMLParserDelegate {
         }
 	}
 	
-	func parser(_ parser: XMLParser, foundCharacters string: String) {
+    public func parser(_ parser: XMLParser, foundCharacters string: String) {
         guard let current = self.currentString else { return }
         self.currentString = current + string
 	}
 	
-	func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
-		//
+    public func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
+        debugPrint("parser error \(parseError.localizedDescription)")
+        guard let completion = self.delegateCompletion else { return }
+        DispatchQueue.main.async {
+            completion(nil, parseError)
+        }
 	}
 }

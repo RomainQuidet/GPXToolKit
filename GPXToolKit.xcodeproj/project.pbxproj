@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F62187D2247F2BA008F4F48 /* SingleWaypoint.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2F6218782247E627008F4F48 /* SingleWaypoint.gpx */; };
+		2F62187E2247FA0C008F4F48 /* SingleTrack-1.0.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2F6218792247E653008F4F48 /* SingleTrack-1.0.gpx */; };
+		2F62187F2247FA12008F4F48 /* GPSBabel-1.0.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2F62187A2247E6B4008F4F48 /* GPSBabel-1.0.gpx */; };
+		2F6218802247FA16008F4F48 /* EMTAC-BTGPS.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2F62187B2247E6EF008F4F48 /* EMTAC-BTGPS.gpx */; };
+		2F6218812247FA1A008F4F48 /* Runkeeper-waypoints-1.1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2F62187C2247E775008F4F48 /* Runkeeper-waypoints-1.1.gpx */; };
 		7A6429E72246C47300CC2957 /* GPXToolKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A6429DD2246C47300CC2957 /* GPXToolKit.framework */; };
 		7A6429EC2246C47300CC2957 /* GPXToolKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6429EB2246C47300CC2957 /* GPXToolKitTests.swift */; };
 		7A6429EE2246C47300CC2957 /* GPXToolKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A6429E02246C47300CC2957 /* GPXToolKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -224,6 +229,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F62187F2247FA12008F4F48 /* GPSBabel-1.0.gpx in Resources */,
+				2F62187D2247F2BA008F4F48 /* SingleWaypoint.gpx in Resources */,
+				2F6218812247FA1A008F4F48 /* Runkeeper-waypoints-1.1.gpx in Resources */,
+				2F62187E2247FA0C008F4F48 /* SingleTrack-1.0.gpx in Resources */,
+				2F6218802247FA16008F4F48 /* EMTAC-BTGPS.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
