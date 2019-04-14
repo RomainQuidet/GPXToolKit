@@ -163,4 +163,24 @@ class GPXToolKitTests: XCTestCase {
         
         self.wait(for: [expectation], timeout: 2)
     }
+    
+    func testGPXCreation() {
+        var gpx = GPX(version: "1.1")
+        var route = GPXRoute()
+        guard let waypoint = GPXWaypoint(lat: 44.3, lon: 2.01) else {
+            XCTFail("waypoint creation must succeed")
+            return
+        }
+        route.points = [waypoint]
+        gpx.routes = [route]
+        
+        XCTAssertEqual(gpx.creator, "GPXToolKit - http://www.xdappfactory.com")
+        XCTAssertTrue(gpx.routes?.count == 1)
+        guard let firstWaypoint = gpx.routes?.first?.points.first else {
+            XCTFail("firstWaypoint must exist")
+            return
+        }
+        XCTAssertEqual(firstWaypoint.lat, 44.3, accuracy: 0.00001)
+        XCTAssertEqual(firstWaypoint.lon, 2.01, accuracy: 0.000001)
+    }
 }

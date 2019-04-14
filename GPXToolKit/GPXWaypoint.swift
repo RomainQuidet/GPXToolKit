@@ -19,12 +19,19 @@ public struct GPXWaypoint {
 
     //MARK: - Internal
     
-    init?(lat: String, lon: String) {
+    public init?(lat: String, lon: String) {
         guard let latitude = Double(lat),
             let longitude = Double(lon) else { return nil }
         guard latitude >= -90 && latitude <= 90,
             longitude >= -180 && longitude <= 180 else { return nil }
         self.lat = latitude
         self.lon = longitude
+    }
+    
+    public init?(lat: Double, lon: Double) {
+        guard lat >= -90 && lat <= 90,
+            lon >= -180 && lon <= 180 else { return nil }
+        self.lat = lat
+        self.lon = lon
     }
 }
