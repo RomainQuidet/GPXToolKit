@@ -8,10 +8,10 @@
 
 import Foundation
 
-public class GPXTrack {
-    public internal(set) var name: String = ""
-	public internal(set) var comment: String?
-	public internal(set) var description: String?
-    public internal(set) var segments = [GPXTrackSegment]()
+public struct GPXTrack {
+    public var name: String = ""
+	public var comment: String?
+	public var description: String?
+    public var segments = [GPXTrackSegment]()
 
 }

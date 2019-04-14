@@ -8,6 +8,6 @@
 
 import Foundation
 
-public class GPXTrackSegment {
-	public internal(set) var points = [GPXWaypoint]()
+public struct GPXTrackSegment {
+	public var points = [GPXWaypoint]()
 }

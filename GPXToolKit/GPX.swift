@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class GPX {
+public struct GPX {
 	public let version: String
 	public var creator: String?
 	public var metadata: GPXMetadata?

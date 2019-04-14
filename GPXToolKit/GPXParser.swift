@@ -138,10 +138,11 @@ public class GPXParser: NSObject, XMLParserDelegate {
                 abortParsing()
                 return
             }
-            self.currentGPX = GPX(version: version)
+            var gpx = GPX(version: version)
             if let creator = attributeDict["creator"] {
-                self.currentGPX?.creator = creator
+                gpx.creator = creator
             }
+            self.currentGPX = gpx
         case .trk:
             self.currentTrack = GPXTrack()
         case .trkseg:
@@ -177,29 +178,33 @@ public class GPXParser: NSObject, XMLParserDelegate {
             if foundRoutes.count > 0 {
                 gpx.routes = foundRoutes
             }
+            self.currentGPX = gpx
         case .trk:
             guard let track = self.currentTrack else { return }
             self.foundTracks.append(track)
             self.currentTrack = nil
         case .trkseg:
-            guard let track = self.currentTrack,
+            guard var track = self.currentTrack,
                 let segment = self.currentTrackSegment else { return }
             track.segments.append(segment)
             self.currentTrackSegment = nil
+            self.currentTrack = track
         case .trkpt:
-            guard let segment = self.currentTrackSegment,
+            guard var segment = self.currentTrackSegment,
                 let point = self.currentPoint else { return }
             segment.points.append(point)
             self.currentPoint = nil
+            self.currentTrackSegment = segment
         case .rte:
             guard let route = self.currentRoute else { return }
             self.foundRoutes.append(route)
             self.currentRoute = nil
         case .rtept:
-            guard let route = self.currentRoute,
+            guard var route = self.currentRoute,
                 let point = self.currentPoint else { return }
             route.points.append(point)
             self.currentPoint = nil
+            self.currentRoute = route
         case .wpt:
             guard let point = self.currentPoint else { return }
             self.foundWaypoints.append(point)
@@ -208,52 +213,63 @@ public class GPXParser: NSObject, XMLParserDelegate {
             defer {
                 self.currentString = nil
             }
-            guard let point = self.currentPoint,
+            guard var point = self.currentPoint,
                 let elevationString = self.currentString,
                 let elevation = Double(elevationString) else { return }
             point.elevation = elevation
+            self.currentPoint = point
         case .time:
             defer {
                 self.currentString = nil
             }
             guard let dateString = self.currentString,
                 let date = self.dateFormatter.date(from: dateString),
-                let point = self.currentPoint else { return }
+                var point = self.currentPoint else { return }
             point.date = date
+            self.currentPoint = point
         case .name:
             guard let name = self.currentString else { return }
-            if let point = self.currentPoint {
+            if var point = self.currentPoint {
                 point.name = name
+                self.currentPoint = point
             }
-            else if let track = self.currentTrack {
+            else if var track = self.currentTrack {
                 track.name = name
+                self.currentTrack = track
             }
-            else if let route = self.currentRoute {
+            else if var route = self.currentRoute {
                 route.name = name
+                self.currentRoute = route
             }
             self.currentString = nil
         case .cmt:
             guard let comment = self.currentString else { return }
-            if let point = self.currentPoint {
+            if var point = self.currentPoint {
                 point.comment = comment
+                self.currentPoint = point
             }
-            else if let track = self.currentTrack {
+            else if var track = self.currentTrack {
                 track.comment = comment
+                self.currentTrack = track
             }
-            else if let route = self.currentRoute {
+            else if var route = self.currentRoute {
                 route.comment = comment
+                self.currentRoute = route
             }
             self.currentString = nil
         case .desc:
             guard let description = self.currentString else { return }
-            if let point = self.currentPoint {
+            if var point = self.currentPoint {
                 point.description = description
+                self.currentPoint = point
             }
-            else if let track = self.currentTrack {
+            else if var track = self.currentTrack {
                 track.description = description
+                self.currentTrack = track
             }
-            else if let route = self.currentRoute {
+            else if var route = self.currentRoute {
                 route.description = description
+                self.currentRoute = route
             }
             self.currentString = nil
         }

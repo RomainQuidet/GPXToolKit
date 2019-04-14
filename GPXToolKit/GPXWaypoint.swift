@@ -8,14 +8,14 @@
 
 import Foundation
 
-public class GPXWaypoint {
+public struct GPXWaypoint {
 	public let lat: Double
 	public let lon: Double
-    public internal(set) var elevation: Double?
-    public internal(set) var date: Date?
-    public internal(set) var name: String?
-    public internal(set) var comment: String?
-    public internal(set) var description: String?
+    public var elevation: Double?
+    public var date: Date?
+    public var name: String?
+    public var comment: String?
+    public var description: String?
 
     //MARK: - Internal
     
