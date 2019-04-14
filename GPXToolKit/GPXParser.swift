@@ -144,7 +144,7 @@ public class GPXParser: NSObject, XMLParserDelegate {
             }
             self.currentGPX = gpx
         case .trk:
-            self.currentTrack = GPXTrack()
+            self.currentTrack = GPXTrack(name: "")
         case .trkseg:
             self.currentTrackSegment = GPXTrackSegment()
         case .trkpt, .rtept, .wpt:

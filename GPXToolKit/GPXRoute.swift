@@ -14,4 +14,7 @@ public struct GPXRoute {
     public var comment: String?
     public var description: String?
 
+    public init() {
+        
+    }
 }
