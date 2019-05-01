@@ -134,7 +134,7 @@ public struct GPX {
     
     private func writeTrackHeader(_ track: GPXTrack, to file: FileHandle) throws {
         var header = "\t<\(GPXKey.trk)>\n"
-        let tabOffset = "\t\t"
+        let tabOffset = "\t"
         header = header + tabOffset + "\t<\(GPXKey.name)>\(track.name)</\(GPXKey.name)>\n"
         if let comment = track.comment {
             header = header + tabOffset + "\t<\(GPXKey.cmt)>\(comment)</\(GPXKey.cmt)>\n"
@@ -168,7 +168,7 @@ public struct GPX {
     
     private func writeRouteHeader(_ route: GPXRoute, to file: FileHandle) throws {
         var header = "\t<\(GPXKey.rte)>\n"
-        let tabOffset = "\t\t"
+        let tabOffset = "\t"
         if let name = route.name {
             header = header + tabOffset + "\t<\(GPXKey.name)>\(name)</\(GPXKey.name)>\n"
         }
