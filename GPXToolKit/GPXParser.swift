@@ -19,14 +19,6 @@ public class GPXParser: NSObject, XMLParserDelegate {
 		case initial, parsing, done
 	}
 	private var state: GPXParserState = .initial
-	private enum GPXKey: String {
-        case gpx
-		case trk, trkpt, trkseg
-		case wpt
-		case rte, rtept
-		case ele, time, desc, cmt, name
-	}
-    
     private let dateFormatter = ISO8601DateFormatter()
 	
     private var currentGPX: GPX?

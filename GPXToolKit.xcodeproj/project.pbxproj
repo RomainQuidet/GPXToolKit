@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F4CE1B7226A405500363240 /* GPXKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4CE1B6226A405500363240 /* GPXKeys.swift */; };
 		2F62187D2247F2BA008F4F48 /* SingleWaypoint.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2F6218782247E627008F4F48 /* SingleWaypoint.gpx */; };
 		2F62187E2247FA0C008F4F48 /* SingleTrack-1.0.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2F6218792247E653008F4F48 /* SingleTrack-1.0.gpx */; };
 		2F62187F2247FA12008F4F48 /* GPSBabel-1.0.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2F62187A2247E6B4008F4F48 /* GPSBabel-1.0.gpx */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F4CE1B6226A405500363240 /* GPXKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXKeys.swift; sourceTree = "<group>"; };
 		2F6218782247E627008F4F48 /* SingleWaypoint.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SingleWaypoint.gpx; sourceTree = "<group>"; };
 		2F6218792247E653008F4F48 /* SingleTrack-1.0.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "SingleTrack-1.0.gpx"; sourceTree = "<group>"; };
 		2F62187A2247E6B4008F4F48 /* GPSBabel-1.0.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "GPSBabel-1.0.gpx"; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				7A6429FF2246C86E00CC2957 /* GPXTrack.swift */,
 				7A642A032246DCB500CC2957 /* GPXTrackSegment.swift */,
 				7A642A012246CA3500CC2957 /* GPXParser.swift */,
+				2F4CE1B6226A405500363240 /* GPXKeys.swift */,
 			);
 			path = GPXToolKit;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				7A642A002246C86E00CC2957 /* GPXTrack.swift in Sources */,
 				7A6429FA2246C65600CC2957 /* GPXMetadata.swift in Sources */,
 				7A642A022246CA3500CC2957 /* GPXParser.swift in Sources */,
+				2F4CE1B7226A405500363240 /* GPXKeys.swift in Sources */,
 				7A6429FC2246C6D300CC2957 /* GPXWaypoint.swift in Sources */,
 				7A6429F82246C5AB00CC2957 /* GPX.swift in Sources */,
 				7A642A042246DCB500CC2957 /* GPXTrackSegment.swift in Sources */,
