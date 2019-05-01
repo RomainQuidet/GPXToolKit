@@ -9,7 +9,7 @@
 import XCTest
 @testable import GPXToolKit
 
-class GPXToolKitTests: XCTestCase {
+class GPXParserTests: XCTestCase {
 
     private var bundle: Bundle?
     

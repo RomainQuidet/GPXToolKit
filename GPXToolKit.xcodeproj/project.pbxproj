@@ -13,8 +13,9 @@
 		2F62187F2247FA12008F4F48 /* GPSBabel-1.0.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2F62187A2247E6B4008F4F48 /* GPSBabel-1.0.gpx */; };
 		2F6218802247FA16008F4F48 /* EMTAC-BTGPS.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2F62187B2247E6EF008F4F48 /* EMTAC-BTGPS.gpx */; };
 		2F6218812247FA1A008F4F48 /* Runkeeper-waypoints-1.1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2F62187C2247E775008F4F48 /* Runkeeper-waypoints-1.1.gpx */; };
+		2F841F8A227937DB00678C44 /* GPXWriteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F841F89227937DB00678C44 /* GPXWriteTests.swift */; };
 		7A6429E72246C47300CC2957 /* GPXToolKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A6429DD2246C47300CC2957 /* GPXToolKit.framework */; };
-		7A6429EC2246C47300CC2957 /* GPXToolKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6429EB2246C47300CC2957 /* GPXToolKitTests.swift */; };
+		7A6429EC2246C47300CC2957 /* GPXParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6429EB2246C47300CC2957 /* GPXParserTests.swift */; };
 		7A6429EE2246C47300CC2957 /* GPXToolKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A6429E02246C47300CC2957 /* GPXToolKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7A6429F82246C5AB00CC2957 /* GPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6429F72246C5AB00CC2957 /* GPX.swift */; };
 		7A6429FA2246C65600CC2957 /* GPXMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6429F92246C65600CC2957 /* GPXMetadata.swift */; };
@@ -42,11 +43,12 @@
 		2F62187A2247E6B4008F4F48 /* GPSBabel-1.0.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "GPSBabel-1.0.gpx"; sourceTree = "<group>"; };
 		2F62187B2247E6EF008F4F48 /* EMTAC-BTGPS.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "EMTAC-BTGPS.gpx"; sourceTree = "<group>"; };
 		2F62187C2247E775008F4F48 /* Runkeeper-waypoints-1.1.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Runkeeper-waypoints-1.1.gpx"; sourceTree = "<group>"; };
+		2F841F89227937DB00678C44 /* GPXWriteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXWriteTests.swift; sourceTree = "<group>"; };
 		7A6429DD2246C47300CC2957 /* GPXToolKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GPXToolKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A6429E02246C47300CC2957 /* GPXToolKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPXToolKit.h; sourceTree = "<group>"; };
 		7A6429E12246C47300CC2957 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A6429E62246C47300CC2957 /* GPXToolKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPXToolKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A6429EB2246C47300CC2957 /* GPXToolKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXToolKitTests.swift; sourceTree = "<group>"; };
+		7A6429EB2246C47300CC2957 /* GPXParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXParserTests.swift; sourceTree = "<group>"; };
 		7A6429ED2246C47300CC2957 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A6429F72246C5AB00CC2957 /* GPX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPX.swift; sourceTree = "<group>"; };
 		7A6429F92246C65600CC2957 /* GPXMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXMetadata.swift; sourceTree = "<group>"; };
@@ -127,7 +129,8 @@
 			isa = PBXGroup;
 			children = (
 				2F6218772247E5F7008F4F48 /* GPXTestFiles */,
-				7A6429EB2246C47300CC2957 /* GPXToolKitTests.swift */,
+				7A6429EB2246C47300CC2957 /* GPXParserTests.swift */,
+				2F841F89227937DB00678C44 /* GPXWriteTests.swift */,
 				7A6429ED2246C47300CC2957 /* Info.plist */,
 			);
 			path = GPXToolKitTests;
@@ -264,7 +267,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A6429EC2246C47300CC2957 /* GPXToolKitTests.swift in Sources */,
+				7A6429EC2246C47300CC2957 /* GPXParserTests.swift in Sources */,
+				2F841F8A227937DB00678C44 /* GPXWriteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

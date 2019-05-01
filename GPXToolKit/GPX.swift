@@ -42,8 +42,22 @@ public struct GPX {
     public func write(to fileURL: URL, completion: @escaping GPXWriteCompletion) {
         //Keep strong ref on self while writing
         DispatchQueue.global(qos: .userInitiated).async {
-            guard fileURL.isFileURL == true,
-                let file = try? FileHandle(forWritingTo: fileURL) else {
+            guard fileURL.isFileURL == true else {
+                self.warnDelegateWriteCompletion(success: false, completion: completion)
+                return
+            }
+            
+            let fileManager = FileManager.default
+            if fileManager.fileExists(atPath: fileURL.absoluteString) == false {
+                let data = Data()
+                do {
+                    try data.write(to: fileURL)
+                } catch {
+                    debugPrint("error: \(error)")
+                }                    
+            }
+            
+            guard let file = try? FileHandle(forWritingTo: fileURL) else {
                 self.warnDelegateWriteCompletion(success: false, completion: completion)
                 return
             }
@@ -103,11 +117,11 @@ public struct GPX {
     }
     
     private func writeGPXHeader(to file: FileHandle) throws {
-        var header = "<\(GPXKey.gpx) \n\tversion=\"\(version)\"\n"
+        var header = "<\(GPXKey.gpx) version=\"\(version)\"\n"
         if let creator = self.creator {
             header += "\tcreator=\"\(creator)\"\n"
         }
-        header += "xsi:schemaLocation=\"http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd\">"
+        header += "\txsi:schemaLocation=\"http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd\">\n"
         try file.write(header)
     }
     
