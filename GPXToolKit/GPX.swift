@@ -119,19 +119,31 @@ public struct GPX {
     //MARK: Track
     
     private func writeTrackHeader(_ track: GPXTrack, to file: FileHandle) throws {
-        
+        var header = "\t<\(GPXKey.trk)>\n"
+        let tabOffset = "\t\t"
+        header = header + tabOffset + "\t<\(GPXKey.name)>\(track.name)</\(GPXKey.name)>\n"
+        if let comment = track.comment {
+            header = header + tabOffset + "\t<\(GPXKey.cmt)>\(comment)</\(GPXKey.cmt)>\n"
+        }
+        if let description = track.description {
+            header = header + tabOffset + "\t<\(GPXKey.desc)>\(description)</\(GPXKey.desc)>\n"
+        }
+        try file.write(header)
     }
     
     private func writeTrackHeaderEnd(to file: FileHandle) throws {
-        
+        let end = "\t</\(GPXKey.trk)>\n"
+        try file.write(end)
     }
     
     private func writeTrackSegmentHeader(to file: FileHandle) throws {
-        
+        let header = "\t\t<\(GPXKey.trkseg)>\n"
+        try file.write(header)
     }
     
     private func writeTrackSegmentHeaderEnd(to file: FileHandle) throws {
-        
+        let end = "\t\t</\(GPXKey.trkseg)>\n"
+        try file.write(end)
     }
     
     private func writeTrackPoint(_ point: GPXWaypoint, to file: FileHandle) throws {
@@ -141,11 +153,23 @@ public struct GPX {
     //MARK: Route
     
     private func writeRouteHeader(_ route: GPXRoute, to file: FileHandle) throws {
-        
+        var header = "\t<\(GPXKey.rte)>\n"
+        let tabOffset = "\t\t"
+        if let name = route.name {
+            header = header + tabOffset + "\t<\(GPXKey.name)>\(name)</\(GPXKey.name)>\n"
+        }
+        if let comment = route.comment {
+            header = header + tabOffset + "\t<\(GPXKey.cmt)>\(comment)</\(GPXKey.cmt)>\n"
+        }
+        if let description = route.description {
+            header = header + tabOffset + "\t<\(GPXKey.desc)>\(description)</\(GPXKey.desc)>\n"
+        }
+        try file.write(header)
     }
     
     private func writeRouteHeaderEnd(to file: FileHandle) throws {
-        
+        let end = "\t</\(GPXKey.rte)>\n"
+        try file.write(end)
     }
     
     private func writeRoutePoint(_ point: GPXWaypoint, to file: FileHandle) throws {
