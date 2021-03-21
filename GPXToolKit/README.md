@@ -1,3 +1,5 @@
 # GPXToolKit
+Swift framework to manipulate GPX files
 
-A description of this package.
+install via Swift Package Manager
+
