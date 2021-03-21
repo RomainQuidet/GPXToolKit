@@ -5,6 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "GPXToolKit",
+	platforms: [
+		.macOS(.v10_14), .iOS(.v13), .tvOS(.v13), .watchOS(.v7)
+		],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
@@ -23,6 +26,9 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "GPXToolKitTests",
-            dependencies: ["GPXToolKit"]),
+            dependencies: ["GPXToolKit"],
+			resources: [
+					.copy("GPXTestFiles"),
+			]),
     ]
 )

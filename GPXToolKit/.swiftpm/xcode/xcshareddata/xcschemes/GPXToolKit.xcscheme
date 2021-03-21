@@ -14,10 +14,24 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7A6429DC2246C47300CC2957"
-               BuildableName = "GPXToolKit.framework"
+               BlueprintIdentifier = "GPXToolKit"
+               BuildableName = "GPXToolKit"
                BlueprintName = "GPXToolKit"
-               ReferencedContainer = "container:GPXToolKit.xcodeproj">
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "GPXToolKitTests"
+               BuildableName = "GPXToolKitTests"
+               BlueprintName = "GPXToolKitTests"
+               ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -27,24 +41,15 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7A6429DC2246C47300CC2957"
-            BuildableName = "GPXToolKit.framework"
-            BlueprintName = "GPXToolKit"
-            ReferencedContainer = "container:GPXToolKit.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7A6429E52246C47300CC2957"
-               BuildableName = "GPXToolKitTests.xctest"
+               BlueprintIdentifier = "GPXToolKitTests"
+               BuildableName = "GPXToolKitTests"
                BlueprintName = "GPXToolKitTests"
-               ReferencedContainer = "container:GPXToolKit.xcodeproj">
+               ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -59,15 +64,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7A6429DC2246C47300CC2957"
-            BuildableName = "GPXToolKit.framework"
-            BlueprintName = "GPXToolKit"
-            ReferencedContainer = "container:GPXToolKit.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -78,10 +74,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7A6429DC2246C47300CC2957"
-            BuildableName = "GPXToolKit.framework"
+            BlueprintIdentifier = "GPXToolKit"
+            BuildableName = "GPXToolKit"
             BlueprintName = "GPXToolKit"
-            ReferencedContainer = "container:GPXToolKit.xcodeproj">
+            ReferencedContainer = "container:">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

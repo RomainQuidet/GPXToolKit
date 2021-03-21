@@ -10,11 +10,9 @@ import XCTest
 @testable import GPXToolKit
 
 class GPXParserTests: XCTestCase {
-
-    private var bundle: Bundle?
     
     override func setUp() {
-        bundle = Bundle(for: self.classForCoder)
+		//
     }
 
     override func tearDown() {
@@ -22,7 +20,7 @@ class GPXParserTests: XCTestCase {
     }
 
     func testSingleWaypoint() {
-        guard let url = self.bundle?.url(forResource: "SingleWaypoint", withExtension: "gpx") else {
+		guard let url = Bundle.module.url(forResource: "GPXTestFiles/SingleWaypoint", withExtension: "gpx") else {
             XCTFail("can't find file")
             return
         }
@@ -42,7 +40,7 @@ class GPXParserTests: XCTestCase {
     }
     
     func testSingleTrack1_0() {
-        guard let url = self.bundle?.url(forResource: "SingleTrack-1.0", withExtension: "gpx") else {
+        guard let url = Bundle.module.url(forResource: "GPXTestFiles/SingleTrack-1.0", withExtension: "gpx") else {
             XCTFail("can't find file")
             return
         }
@@ -68,7 +66,7 @@ class GPXParserTests: XCTestCase {
     }
     
     func testGPSBabel1_0() {
-        guard let url = self.bundle?.url(forResource: "GPSBabel-1.0", withExtension: "gpx") else {
+        guard let url = Bundle.module.url(forResource: "GPXTestFiles/GPSBabel-1.0", withExtension: "gpx") else {
             XCTFail("can't find file")
             return
         }
@@ -114,7 +112,7 @@ class GPXParserTests: XCTestCase {
     }
     
     func testEMTAC_BTGPS() {
-        guard let url = self.bundle?.url(forResource: "EMTAC-BTGPS", withExtension: "gpx") else {
+        guard let url = Bundle.module.url(forResource: "GPXTestFiles/EMTAC-BTGPS", withExtension: "gpx") else {
             XCTFail("can't find file")
             return
         }
@@ -141,7 +139,7 @@ class GPXParserTests: XCTestCase {
     }
     
     func testRunkeeper() {
-        guard let url = self.bundle?.url(forResource: "Runkeeper-waypoints-1.1", withExtension: "gpx") else {
+        guard let url = Bundle.module.url(forResource: "GPXTestFiles/Runkeeper-waypoints-1.1", withExtension: "gpx") else {
             XCTFail("can't find file")
             return
         }
