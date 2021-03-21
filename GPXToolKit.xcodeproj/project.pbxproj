@@ -24,6 +24,8 @@
 		7A642A002246C86E00CC2957 /* GPXTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6429FF2246C86E00CC2957 /* GPXTrack.swift */; };
 		7A642A022246CA3500CC2957 /* GPXParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A642A012246CA3500CC2957 /* GPXParser.swift */; };
 		7A642A042246DCB500CC2957 /* GPXTrackSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A642A032246DCB500CC2957 /* GPXTrackSegment.swift */; };
+		7A7E3E9B26078FA5007F7ACF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7A7E3E9A26078FA5007F7ACF /* README.md */; };
+		7A7E3EA5260790B2007F7ACF /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7E3EA4260790B2007F7ACF /* Package.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		7A6429FF2246C86E00CC2957 /* GPXTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXTrack.swift; sourceTree = "<group>"; };
 		7A642A012246CA3500CC2957 /* GPXParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXParser.swift; sourceTree = "<group>"; };
 		7A642A032246DCB500CC2957 /* GPXTrackSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXTrackSegment.swift; sourceTree = "<group>"; };
+		7A7E3E9A26078FA5007F7ACF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		7A7E3EA4260790B2007F7ACF /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,8 +97,10 @@
 		7A6429D32246C47300CC2957 = {
 			isa = PBXGroup;
 			children = (
-				7A6429DF2246C47300CC2957 /* GPXToolKit */,
-				7A6429EA2246C47300CC2957 /* GPXToolKitTests */,
+				7A7E3EA4260790B2007F7ACF /* Package.swift */,
+				7A7E3E9A26078FA5007F7ACF /* README.md */,
+				7A7E3E9E26078FFA007F7ACF /* Sources */,
+				7A7E3E9F2607900F007F7ACF /* Tests */,
 				7A6429DE2246C47300CC2957 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -108,7 +114,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7A6429DF2246C47300CC2957 /* GPXToolKit */ = {
+		7A6429DF2246C47300CC2957 /* GPXToolKitPackage */ = {
 			isa = PBXGroup;
 			children = (
 				7A6429E02246C47300CC2957 /* GPXToolKit.h */,
@@ -122,7 +128,7 @@
 				7A642A012246CA3500CC2957 /* GPXParser.swift */,
 				2F4CE1B6226A405500363240 /* GPXKeys.swift */,
 			);
-			path = GPXToolKit;
+			path = GPXToolKitPackage;
 			sourceTree = "<group>";
 		};
 		7A6429EA2246C47300CC2957 /* GPXToolKitTests */ = {
@@ -134,6 +140,22 @@
 				7A6429ED2246C47300CC2957 /* Info.plist */,
 			);
 			path = GPXToolKitTests;
+			sourceTree = "<group>";
+		};
+		7A7E3E9E26078FFA007F7ACF /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				7A6429DF2246C47300CC2957 /* GPXToolKitPackage */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		7A7E3E9F2607900F007F7ACF /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				7A6429EA2246C47300CC2957 /* GPXToolKitTests */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A7E3E9B26078FA5007F7ACF /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +278,7 @@
 				7A642A002246C86E00CC2957 /* GPXTrack.swift in Sources */,
 				7A6429FA2246C65600CC2957 /* GPXMetadata.swift in Sources */,
 				7A642A022246CA3500CC2957 /* GPXParser.swift in Sources */,
+				7A7E3EA5260790B2007F7ACF /* Package.swift in Sources */,
 				2F4CE1B7226A405500363240 /* GPXKeys.swift in Sources */,
 				7A6429FC2246C6D300CC2957 /* GPXWaypoint.swift in Sources */,
 				7A6429F82246C5AB00CC2957 /* GPX.swift in Sources */,
@@ -418,7 +442,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = GPXToolKit/Info.plist;
+				INFOPLIST_FILE = Sources/GPXToolKitPackage/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -446,7 +470,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = GPXToolKit/Info.plist;
+				INFOPLIST_FILE = Sources/GPXToolKitPackage/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -468,7 +492,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K66NHNFE93;
-				INFOPLIST_FILE = GPXToolKitTests/Info.plist;
+				INFOPLIST_FILE = Tests/GPXToolKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -487,7 +511,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K66NHNFE93;
-				INFOPLIST_FILE = GPXToolKitTests/Info.plist;
+				INFOPLIST_FILE = Tests/GPXToolKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
